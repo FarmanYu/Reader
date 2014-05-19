@@ -1,0 +1,19 @@
+{
+  "name": "Reader",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Farman<yuhongfei1001@163.com>",
+  "keywords": [
+    "rss",
+    "reader"
+  ],
+  "repository": "git://github.com/FarmanYu/Reader",
+  "dependencies": {
+    "express": "3.5.1",
+    "feedparser": "^0.16.6",
+    "jade": "*"
+  },
+  "license": "MIT"
+}
