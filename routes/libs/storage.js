@@ -34,16 +34,20 @@ Storage.prototype = {
 	 **/
 	add: function(data, callback) {
 		var content = fsManger.read(this.filename) || "[]";
-		content = JSON.parse(content);
-		content.push(data);
-		content = JSON.stringify(content, null, 4);
-		fsManger.push(this.filename, content, function(err, d) {
-			if (err) {
-				console.log(err);
-				return
-			}
-			callback && callback(data);
-		});
+		if(content.indexOf(data.id) === -1){
+			content = JSON.parse(content);
+			content.push(data);
+			content = JSON.stringify(content, null, 4);
+			fsManger.push(this.filename, content, function(err, d) {
+				if (err) {
+					console.log(err);
+					return
+				}
+				callback && callback(data);
+			});
+		} else{
+			 console.log("have this data.");
+		}
 	}
 }
 module.exports = Storage;
